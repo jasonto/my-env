@@ -8,6 +8,11 @@ elif [[ "$platformOs" == "Darwin" ]]; then
 	platform='darwin'
 fi
 
+# install linux specific apps via apt-get - zsh, tmux, vim, htop
+if [[ "$platform" == "linux" ]]; then 
+	sudo apt-get update && sudo apt-get install zsh tmux vim htop
+fi 
+
 # install vundle which manages the vim plugins
 git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -28,9 +33,6 @@ git config --global core.editor vim
 
 # Install oh-my-zsh
 # https://github.com/robbyrussell/oh-my-zsh
-if [[ "$platform" == "linux" ]]; then 
-	sudo apt-get install zsh
-fi 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 zsh
 
