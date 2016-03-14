@@ -21,7 +21,7 @@ git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 rm -rf ./vimrc
 git clone git@bitbucket.org:RussellBradley/vimrc.git
 cd vimrc
-mv .vimrc ~/
+cp .vimrc ~/
 cd ..
 vim +PluginInstall +qall
 
