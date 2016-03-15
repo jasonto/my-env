@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# identify the platform
 platform="unknown"
 platformOs=`uname`
 if [[ "$platformOs" == "Linux" ]]; then
@@ -34,5 +35,10 @@ git config --global core.editor vim
 # Install oh-my-zsh
 # https://github.com/robbyrussell/oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-zsh
+
+# configure zsh to be default shell and enable immediately
+if [[ "$platform" == "darwin" ]]; then
+	chsh -s /bin/zsh
+	zsh
+fi
 
