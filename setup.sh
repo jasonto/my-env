@@ -20,7 +20,7 @@ git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # setup RussellBradley/vimrc 
 # git@github.com:RussellBradley/vimrc.git
 rm -rf ./vimrc
-git clone git@bitbucket.org:RussellBradley/vimrc.git
+git clone git@github.com:RussellBradley/vimrc.git
 cd vimrc
 cp .vimrc ~/
 cd ..
