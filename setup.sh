@@ -36,6 +36,13 @@ git config --global core.editor vim
 # https://github.com/robbyrussell/oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# add requirements for vim colorthemes to zshrc
+if ! grep "xterm-256color" ~/.zshrc; then
+	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+else
+	echo "already set"
+fi
+
 # install darwin specific tools: tmux, brew, htop
 # configure zsh to be default shell and enable immediately
 if [[ "$platform" == "darwin" ]]; then
