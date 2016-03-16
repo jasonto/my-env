@@ -11,7 +11,7 @@ fi
 
 # install linux specific apps via apt-get - zsh, tmux, vim, htop
 if [[ "$platform" == "linux" ]]; then 
-	sudo apt-get update && sudo apt-get install zsh tmux vim htop
+	sudo apt-get install zsh tmux vim htop
 fi 
 
 # install vundle which manages the vim plugins
@@ -37,7 +37,7 @@ git config --global core.editor vim
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # add requirements for vim colorthemes to zshrc
-if ! grep "xterm-256color" ~/.zshrc; then
+if ! grep -q "xterm-256color" ~/.zshrc; then
 	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
 
