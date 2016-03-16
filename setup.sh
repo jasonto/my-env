@@ -34,23 +34,21 @@ git config --global user.name "Russell Bradley"
 git config --global user.email me@russellbradley.com
 git config --global core.editor vim
 
-
-# Install oh-my-zsh
-# https://github.com/robbyrussell/oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# add requirements for vim colorthemes to zshrc
-if ! grep -q "xterm-256color" ~/.zshrc; then
-	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
-fi
-
 # install darwin specific tools: tmux, brew, htop
-# configure zsh to be default shell and enable immediately
+# configure zsh to be default shell
 if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update && brew doctor
 	brew install tmux htop
 	chsh -s /bin/zsh
-	zsh
 fi
+
+# add requirements for vim colorthemes to zshrc
+if ! grep "xterm-256color" ~/.zshrc; then
+	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+fi
+
+# Install oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
