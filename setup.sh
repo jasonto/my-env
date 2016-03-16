@@ -36,8 +36,12 @@ git config --global core.editor vim
 # https://github.com/robbyrussell/oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# install darwin specific tools: tmux, brew, htop
 # configure zsh to be default shell and enable immediately
 if [[ "$platform" == "darwin" ]]; then
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew update && brew doctor
+	brew install tmux htop
 	chsh -s /bin/zsh
 	zsh
 fi
