@@ -44,7 +44,7 @@ if [[ "$platform" == "darwin" ]]; then
 fi
 
 # add requirements for vim colorthemes to zshrc
-if ! grep "xterm-256color" ~/.zshrc; then
+if ! grep -q "xterm-256color" ~/.zshrc; then
 	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
 
