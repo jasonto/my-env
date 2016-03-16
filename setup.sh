@@ -10,8 +10,11 @@ elif [[ "$platformOs" == "Darwin" ]]; then
 fi
 
 # install linux specific apps via apt-get - zsh, tmux, vim, htop
-if [[ "$platform" == "linux" ]]; then 
+if [[ "$platform" == "linux" ]]; then
 	sudo apt-get install zsh tmux vim htop
+	if ! grep -q "zsh" ~/.bashrc; then
+		printf "# Enable zsh once ssh'd into box\nzsh\n" | cat - ~/.bashrc > temp && mv temp ~/.bashrc
+	fi
 fi 
 
 # install vundle which manages the vim plugins
