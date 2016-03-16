@@ -39,8 +39,6 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # add requirements for vim colorthemes to zshrc
 if ! grep "xterm-256color" ~/.zshrc; then
 	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
-else
-	echo "already set"
 fi
 
 # install darwin specific tools: tmux, brew, htop
