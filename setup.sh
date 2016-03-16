@@ -43,13 +43,13 @@ if [[ "$platform" == "darwin" ]]; then
 	chsh -s /bin/zsh
 fi
 
+# Install modified oh-my-zsh that doesn't launch automatically
+# https://github.com/russellbradley/oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/russellbradley/oh-my-zsh/master/tools/install.sh)"
+
 # add requirements for vim colorthemes to zshrc
 # requires setup.sh to be ran twice to update ~/.zshrc since not yet created.
 if ! grep -q "xterm-256color" ~/.zshrc; then
 	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
-
-# Install oh-my-zsh
-# https://github.com/robbyrussell/oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+zsh
