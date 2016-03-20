@@ -1,4 +1,4 @@
-![alt tag](https://s3.amazonaws.com/asset.hosting/env.png)
+![alt tag](https://raw.githubusercontent.com/RussellBradley/my-env/master/snapshot.png)
 
 
 my-env
