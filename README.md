@@ -52,9 +52,13 @@ A delightful community-driven framework for managing your zsh configuration. Inc
 
 OS X package manager 
 
+**upower**
+
+UPower is an abstraction for enumerating power devices, listening to device events and querying history and statistics.
+
 **vim**
 
-Vim is a highly configurable text editor built to enable efficient text editing. It is an improved version of the vi editor distributed with most UNIX system
+Vim is a highly configurable text editor built to enable efficient text editing. It is an improved version of the vi editor distributed with most UNIX system.
 
 **vim plugins**
 
