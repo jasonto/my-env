@@ -15,6 +15,9 @@ if [[ "$platform" == "linux" ]]; then
 	if ! grep -q "zsh" ~/.bashrc; then
 		printf "# Enable zsh once ssh'd into box\nzsh\n" | cat - ~/.bashrc > temp && mv temp ~/.bashrc
 	fi
+	if ! grep -q "battery" ~/.zshrc; then
+		printf "# display battery-status with upower\nalias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|percentage'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+	fi
 fi 
 
 # install vundle which manages the vim plugins
