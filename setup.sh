@@ -43,6 +43,13 @@ if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update && brew doctor
 	brew install tmux htop mercurial vim python cmake
+	# compile  YouCompleteMe
+	mkdir ~/ycm_build
+	cd ~/ycm_build
+	cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+	cmake --build . --target ycm_core --config Release
+	cd ~
+	# change shell zsh
 	chsh -s /bin/zsh
 fi
 
@@ -52,7 +59,15 @@ sh -c "$(curl -fsSL https://raw.github.com/russellbradley/oh-my-zsh/master/tools
 
 # add requirements for vim colorthemes to zshrc
 # requires setup.sh to be ran twice to update ~/.zshrc since not yet created.
+if ! grep -q "YCM_core" ~/.zshrc; then
+	printf "# resolve python crashing after making YCM_core'\n
+	# https://github.com/Valloric/YouCompleteMe/issues/620\n
+	export DYLD_FORCE_FLAT_NAMESPACE=1\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+fi
+
+# required for vim colorthemes to work correctly
 if ! grep -q "xterm-256color" ~/.zshrc; then
 	printf "# Required for vim colorthemes\nexport TERM='xterm-256color'\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
+# kickoff oh-my-zsh
 zsh
