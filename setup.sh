@@ -42,7 +42,7 @@ git config --global core.editor vim
 if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update && brew doctor
-	brew install tmux htop mercurial vim
+	brew install tmux htop mercurial vim python cmake
 	chsh -s /bin/zsh
 fi
 
