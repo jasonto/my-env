@@ -42,7 +42,8 @@ git config --global core.editor vim
 if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update && brew doctor
-	brew install tmux htop mercurial vim python cmake node
+	brew install tmux htop mercurial vim python cmake
+	curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 	# compile  YouCompleteMe
 	mkdir ~/ycm_build
 	cd ~/ycm_build
