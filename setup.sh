@@ -42,12 +42,13 @@ git config --global core.editor vim
 if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update && brew doctor
-	brew install tmux htop mercurial vim python cmake
+	brew install tmux htop mercurial vim python cmake node
 	# compile  YouCompleteMe
 	mkdir ~/ycm_build
 	cd ~/ycm_build
 	cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 	cmake --build . --target ycm_core --config Release
+	cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern_runtime && npm install --production
 	cd ~
 	# change shell zsh
 	chsh -s /bin/zsh
@@ -63,6 +64,7 @@ if ! grep -q "YCM_core" ~/.zshrc; then
 	printf "# resolve python crashing after making YCM_core'\n
 	# https://github.com/Valloric/YouCompleteMe/issues/620\n
 	export DYLD_FORCE_FLAT_NAMESPACE=1\n" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
+	cd ~
 fi
 
 # required for vim colorthemes to work correctly
