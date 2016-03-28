@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# move dotfiles to user home
+cp dotfiles/.tern-config ~/.
+
 # identify the platform
 platform="unknown"
 platformOs=`uname`
@@ -50,6 +53,7 @@ if [[ "$platform" == "darwin" ]]; then
 	cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 	cmake --build . --target ycm_core --config Release
 	cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern_runtime && npm install --production
+	cd ~/.vim/bundle/tern_for_vim && npm install
 	cd ~
 	# change shell zsh
 	chsh -s /bin/zsh
