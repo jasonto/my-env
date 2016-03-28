@@ -37,7 +37,7 @@ git config --global user.name "Russell Bradley"
 git config --global user.email me@russellbradley.com
 git config --global core.editor vim
 
-# install darwin specific tools: tmux, brew, htop
+# install darwin specific tools: tmux, brew, htop mercurial vim python cmake, node
 # configure zsh to be default shell
 if [[ "$platform" == "darwin" ]]; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
