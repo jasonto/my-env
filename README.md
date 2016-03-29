@@ -56,6 +56,34 @@ OS X package manager
 
 UPower is an abstraction for enumerating power devices, listening to device events and querying history and statistics.
 
+**mercurial**
+
+Mercurial is a cross-platform, distributed revision control tool 
+
+**python**
+
+Python is a widely used high-level, general-purpose, interpreted, dynamic programming language.
+
+**cmake**
+
+CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method.
+
+**python-setuptools**
+
+Setuptools is a fully-featured, actively-maintained, and stable library designed to facilitate packaging Python projects
+
+**libmxl2-dev**
+
+Libxml2 is the XML C parser and toolkit developed for the Gnome project
+
+**libxslt1-dev**
+
+Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a an XML language to define transformation for XML
+
+**python-dev**
+
+Header files and a static library for Python
+
 **vim**
 
 Vim is a highly configurable text editor built to enable efficient text editing. It is an improved version of the vi editor distributed with most UNIX system.
