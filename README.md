@@ -101,4 +101,13 @@ Vim is a highly configurable text editor built to enable efficient text editing.
 - node vim tools
 - vim-easymotion
 - vim-colorschemes
+- vim-json
+- vim-jdaddy
+- vim-javascript-syntax
+- vim-javascript
+- vim-indent-guides
+- delimitMate
+- syntastic
+- YouCompleteMe
+- tern_for_vim
 
