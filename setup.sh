@@ -36,8 +36,8 @@ cd ..
 vim +PluginInstall +qall
 
 # Configure git
-git config --global user.name "Russell Bradley"
-git config --global user.email me@russellbradley.com
+git config --global user.name "Jason To"
+git config --global user.email jasonto86@gmail.com
 git config --global core.editor vim
 
 # install darwin specific tools: tmux, brew, htop mercurial vim python cmake, node
